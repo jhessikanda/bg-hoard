@@ -1669,7 +1669,7 @@
     tslib "^2.0.0"
     yargs-parser "20.0.0"
 
-"@nrwl/workspace@12.3.6":
+"@nrwl/workspace@12.3.6", "@nrwl/workspace@^12.3.6":
   version "12.3.6"
   resolved "https://registry.yarnpkg.com/@nrwl/workspace/-/workspace-12.3.6.tgz#4b78e08284312726861a5a50ca2bc50243ea041a"
   integrity sha512-s87OSvy/aQx0D5spP2CXYhs/of0CIrNsxdaYQi4QhKo508hybRgOBxORDgU4z55Wm3lr/GxQdmxedXKzu7PbIw==
