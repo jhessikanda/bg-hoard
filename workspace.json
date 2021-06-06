@@ -3,6 +3,7 @@
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
+  "defaultProject": "store",
   "generators": {
     "@nrwl/angular:application": {
       "style": "css",
@@ -28,14 +29,13 @@
       "targets": {
         "deploy": {
           "executor": "@nrwl/workspace:run-commands",
-          "options": 
+          "options": {
+            "commands": [
               {
-                "commands": [
-                  {
-                    "command": "echo 'Your application has been deployed !!!'"
-                  }
-              ]
-            }
+                "command": "echo 'Your application has been deployed !!!'"
+              }
+            ]
+          }
         },
         "build": {
           "executor": "@angular-devkit/build-angular:browser",
@@ -53,7 +53,8 @@
               "apps/store/src/assets"
             ],
             "styles": [
-              "apps/store/src/styles.css", "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
+              "apps/store/src/styles.css",
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"
             ],
             "scripts": []
           },
@@ -156,7 +157,33 @@
           }
         }
       }
+    },
+    "store-ui-shared": {
+      "projectType": "library",
+      "root": "libs/store/ui-shared",
+      "sourceRoot": "libs/store/ui-shared/src",
+      "prefix": "bg-hoard",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/store/ui-shared"
+          ],
+          "options": {
+            "jestConfig": "libs/store/ui-shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/store/ui-shared/src/**/*.ts",
+              "libs/store/ui-shared/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
-  },
-  "defaultProject": "store"
+  }
 }
